@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import axios from 'axios';
 import AddProductPopup from './AddProductPopup';
-import { listCategories } from '../actions/adminActions';
-import { listSubcategories } from '../actions/subcategoryActions';
+import { listCategories, listSubcategories } from '../actions/adminActions';
 
 const Products = () => {
   const dispatch = useDispatch();

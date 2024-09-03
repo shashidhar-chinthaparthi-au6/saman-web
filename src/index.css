@@ -9,3 +9,81 @@ html, body, #root {
 body {
   overflow: hidden; /* Prevent body from scrolling */
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.left-section {
+  width: 30%; /* Adjust this percentage to control the width of the black section */
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.right-section {
+  flex: 1; /* This will make it take up the remaining space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+
+.login-box {
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  background-color: #121212;
+  color: white;
+}
+
+.login-box input:-webkit-autofill,
+.login-box input:-webkit-autofill:hover,
+.login-box input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #121212 inset;
+  -webkit-text-fill-color: #fff;
+}
+
+.login-box input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px #121212 inset;
+  -moz-text-fill-color: #fff;
+}
+
+.login-box button {
+  background-color: #e91e63;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #d81b60;
+}
+
+@media (min-width: 1200px) {
+  .css-m2ijfj-MuiContainer-root {
+    max-width: 100% !important;
+  }
+}

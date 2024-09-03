@@ -1,36 +1,37 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import styled from 'styled-components';
-import store from './store';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard';
-import Products from './components/Products';
 import Orders from './components/Orders';
+import Products from './components/Products';
 import AddCategory from './components/AddCategory';
 import AddSubcategory from './components/AddSubcategory';
 import AddProduct from './components/AddProduct';
+import Login from './pages/Login';
+import styled from 'styled-components';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+  const user = useSelector((state) => state.user.user); // Adjust path if necessary
+
   return (
-    <Provider store={store}>
-      <Router>
-        <AppContainer>
-          <Navbar />
-          <MainContent>
-            <Routes>
-              <Route path="/" element={<Orders />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/add-category" element={<AddCategory />} />
-              <Route path="/add-subcategory" element={<AddSubcategory />} />
-              <Route path="/add-product" element={<AddProduct />} />
-            </Routes>
-          </MainContent>
-        </AppContainer>
-      </Router>
-    </Provider>
+    <Router>
+      <AppContainer>
+        {user && <Navbar />}
+        <MainContent>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/orders" element={<ProtectedRoute component={Orders} />} />
+            <Route path="/products" element={<ProtectedRoute component={Products} />} />
+            <Route path="/add-category" element={<ProtectedRoute component={AddCategory} />} />
+            <Route path="/add-subcategory" element={<ProtectedRoute component={AddSubcategory} />} />
+            <Route path="/add-product" element={<ProtectedRoute component={AddProduct} />} />
+            <Route path="*" element={<Navigate to="/orders" replace />} />
+          </Routes>
+        </MainContent>
+      </AppContainer>
+    </Router>
   );
 }
 

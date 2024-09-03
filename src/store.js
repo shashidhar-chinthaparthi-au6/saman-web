@@ -5,9 +5,11 @@ import thunk from 'redux-thunk'; // Import thunk correctly
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { categoryReducer, productReducer } from './reducers/adminReducers';
 import { subcategoryAddReducer, subcategoryListReducer } from './reducers/subcategoryReducers';
+import userReducer from './reducers/userReducer';
 
 // Combine your reducers into a root reducer
 const rootReducer = combineReducers({
+    user: userReducer,
   categoryList: categoryReducer,
   productList: productReducer,
   subcategoryList: subcategoryListReducer,
