@@ -12,6 +12,7 @@ const AddProductPopup = ({ onClose }) => {
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
   const [images, setImages] = useState([]);
+  const [stock, setStock] = useState(''); // New state for stock
 
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
@@ -44,6 +45,7 @@ const AddProductPopup = ({ onClose }) => {
     formData.append('description', description);
     formData.append('category', category);
     formData.append('subcategory', subcategory);
+    formData.append('stock', stock); // Append stock to form data
 
     for (let i = 0; i < images.length; i++) {
       formData.append('images', images[i]);
@@ -115,6 +117,15 @@ const AddProductPopup = ({ onClose }) => {
                 <option key={sub._id} value={sub._id}>{sub.name}</option>
               ))}
             </StyledSelect>
+          </FormField>
+          <FormField>
+            <label>Stock:</label>
+            <StyledInput
+              type="number"
+              value={stock}
+              onChange={(e) => setStock(e.target.value)}
+              required
+            />
           </FormField>
           <FormField>
             <label>Images:</label>
