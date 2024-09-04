@@ -33,7 +33,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/products', {
+        const response = await axios.get('https://saman-backend.onrender.com/api/v1/products', {
           params: {
             category,
             subcategory,
@@ -50,7 +50,7 @@ const Products = () => {
 
   const handleRemoveProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/product/${productId}`);
+      await axios.delete(`https://saman-backend.onrender.com/api/v1/product/${productId}`);
       setProducts(products.filter((product) => product._id !== productId));
     } catch (error) {
       console.error('Error removing product:', error);
@@ -98,7 +98,7 @@ const Products = () => {
         ) : (
           products.map((product) => (
             <ProductCard key={product._id}>
-              <ProductImage src={`http://localhost:5000/${product.image}`} alt={product.name} />
+              <ProductImage src={`https://saman-backend.onrender.com/${product.image}`} alt={product.name} />
               <ProductInfo>
                 <ProductName>{product.name}</ProductName>
                 <ProductDescription>{product.description}</ProductDescription>

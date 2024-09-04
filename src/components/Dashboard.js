@@ -8,7 +8,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/summary');
+        const response = await axios.get('https://saman-backend.onrender.com/api/v1/summary');
         setSummary(response.data);
       } catch (error) {
         console.error(error);

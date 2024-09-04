@@ -3,7 +3,7 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../constants/actionTypes';
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    const response = await fetch('http://localhost:5000/api/v1/auth/login', {
+    const response = await fetch('https://saman-backend.onrender.com/api/v1/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),

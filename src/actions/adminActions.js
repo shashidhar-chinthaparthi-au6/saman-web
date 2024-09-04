@@ -16,7 +16,7 @@ export const listCategories = () => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_LIST_REQUEST });
 
-    const { data } = await axios.get('http://localhost:5000/api/v1/categories');
+    const { data } = await axios.get('https://saman-backend.onrender.com/api/v1/categories');
 
     dispatch({ type: CATEGORY_LIST_SUCCESS, payload: data.data });
   } catch (error) {
@@ -31,7 +31,7 @@ export const listSubcategories = (categoryId) => async (dispatch) => {
   try {
     dispatch({ type: SUBCATEGORY_LIST_REQUEST });
 
-    const { data } = await axios.get(`http://localhost:5000/api/v1/subcategories/${categoryId}`);
+    const { data } = await axios.get(`https://saman-backend.onrender.com/api/v1/subcategories/${categoryId}`);
 
     dispatch({ type: SUBCATEGORY_LIST_SUCCESS, payload: data.data });
   } catch (error) {
@@ -46,7 +46,7 @@ export const addProduct = (productData) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_ADD_REQUEST });
   
-      const { data } = await axios.post('http://localhost:5000/api/v1/product', productData);
+      const { data } = await axios.post('https://saman-backend.onrender.com/api/v1/product', productData);
   
       dispatch({ type: PRODUCT_ADD_SUCCESS, payload: data });
     } catch (error) {

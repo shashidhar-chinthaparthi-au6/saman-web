@@ -17,7 +17,7 @@ import {
 export const fetchCategories = () => async (dispatch) => {
   try {
     dispatch({ type: FETCH_CATEGORIES_REQUEST });
-    const { data } = await axios.get('http://localhost:5000/api/v1/categories');
+    const { data } = await axios.get('https://saman-backend.onrender.com/api/v1/categories');
     dispatch({ type: FETCH_CATEGORIES_SUCCESS, payload: data });
     return data; // Return data to use in the component
   } catch (error) {
@@ -30,7 +30,7 @@ export const fetchCategories = () => async (dispatch) => {
 export const addCategory = (category) => async (dispatch) => {
   try {
     dispatch({ type: ADD_CATEGORY_REQUEST });
-    const { data } = await axios.post('http://localhost:5000/api/v1/category', category);
+    const { data } = await axios.post('https://saman-backend.onrender.com/api/v1/category', category);
     dispatch({ type: ADD_CATEGORY_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ADD_CATEGORY_FAILURE, payload: error.message });
@@ -42,7 +42,7 @@ export const addCategory = (category) => async (dispatch) => {
 export const removeCategory = (categoryId) => async (dispatch) => {
   try {
     dispatch({ type: REMOVE_CATEGORY_REQUEST });
-    await axios.delete(`http://localhost:5000/api/v1/category/${categoryId}`);
+    await axios.delete(`https://saman-backend.onrender.com/api/v1/category/${categoryId}`);
     dispatch({ type: REMOVE_CATEGORY_SUCCESS, payload: categoryId });
   } catch (error) {
     dispatch({ type: REMOVE_CATEGORY_FAILURE, payload: error.message });

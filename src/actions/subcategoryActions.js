@@ -19,7 +19,7 @@ import {
     try {
       dispatch({ type: SUBCATEGORY_LIST_REQUEST });
   
-      const { data } = await axios.get('http://localhost:5000/api/v1/subcategories');
+      const { data } = await axios.get('https://saman-backend.onrender.com/api/v1/subcategories');
   
       dispatch({
         type: SUBCATEGORY_LIST_SUCCESS,
@@ -49,7 +49,7 @@ import {
 
   export const removeSubcategory = (id) => async (dispatch) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/subcategory/${id}`);
+      await axios.delete(`https://saman-backend.onrender.com/api/v1/subcategory/${id}`);
       dispatch({
         type: 'REMOVE_SUBCATEGORY_SUCCESS',
         payload: id,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000/api/v1', // Your API base URL
+  baseURL: 'https://saman-backend.onrender.com/api/v1', // Your API base URL
 });
 
 // Add a request interceptor
