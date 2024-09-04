@@ -1,6 +1,6 @@
 // src/store.js
 
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { categoryReducer, productReducer } from './reducers/adminReducers';
 import { subcategoryAddReducer, subcategoryListReducer } from './reducers/subcategoryReducers';
@@ -18,16 +18,10 @@ const rootReducer = combineReducers({
 // Create an array of middleware
 const middleware = [thunk];
 
-// Setup Redux DevTools manually with a fallback for non-development environments
-const composeEnhancers =
-  (typeof window !== 'undefined' &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
-// Create the Redux store with the root reducer, middleware, and DevTools integration
+// Create the Redux store with the root reducer and middleware only
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(...middleware))
+  applyMiddleware(...middleware)
 );
 
 // Export the store
